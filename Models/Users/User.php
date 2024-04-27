@@ -7,17 +7,17 @@ use Interfaces\FileConvertible;
 
 class User implements FileConvertible
 {
-    private int $id;
-    private string $firstName;
-    private string $lastName;
-    private string $email;
-    private string $hashedPassword;
-    private string $phoneNumber;
-    private string $address;
-    private DateTime $birthDate;
-    private DateTime $membershipExpirationDate;
-    private string $role;
-    private bool $isActive;
+    protected int $id;
+    protected string $firstName;
+    protected string $lastName;
+    protected string $email;
+    protected string $hashedPassword;
+    protected string $phoneNumber;
+    protected string $address;
+    protected DateTime $birthDate;
+    protected DateTime $membershipExpirationDate;
+    protected string $role;
+    protected bool $isActive;
 
     public function __construct(
         int $id, string $firstName, string $lastName, string $email,

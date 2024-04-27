@@ -5,17 +5,17 @@ namespace Models\Companies;
 use Interfaces\FileConvertible;
 
 class Company implements FileConvertible {
-    private string $name;
-    private int $foundingYear;
-    private string $description;
-    private string $website;
-    private string $phone;
-    private string $industry;
-    private string $ceo;
-    private bool $isPubliclyTraded;
-    private string $country;
-    private string $founder;
-    private int $totalEmployees;
+    protected string $name;
+    protected int $foundingYear;
+    protected string $description;
+    protected string $website;
+    protected string $phone;
+    protected string $industry;
+    protected string $ceo;
+    protected bool $isPubliclyTraded;
+    protected string $country;
+    protected string $founder;
+    protected int $totalEmployees;
 
     public function __construct(string $name, int $foundingYear, string $description, string $website, string $phone, string $industry, string $ceo, bool $isPubliclyTraded, string $country, string $founder, int $totalEmployees) {
         $this->name = $name;
@@ -29,6 +29,10 @@ class Company implements FileConvertible {
         $this->country = $country;
         $this->founder = $founder;
         $this->totalEmployees = $totalEmployees;
+    }
+
+    public function getName(): string {
+        return $this->name;
     }
 
     public function toString(): string

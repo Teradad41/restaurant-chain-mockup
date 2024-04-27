@@ -12,7 +12,7 @@ class Employee extends User implements FileConvertible {
     private DateTime $startDate;
     private array $awards;
 
-    public function __construct(int $id, string $firstName, string $lastName, string $email, string   $password, string $phoneNumber, string $address, DateTime $birthDate, DateTime $membershipExpirationDate, string $role, string $jobTitle, float $salary, DateTime $startDate, array $awards) {
+    public function __construct(int $id, string $firstName, string $lastName, string $email, string $password, string $phoneNumber, string $address, DateTime $birthDate, DateTime $membershipExpirationDate, string $role, string $jobTitle, float $salary, DateTime $startDate, array $awards) {
         parent::__construct($id, $firstName, $lastName, $email, $password, $phoneNumber, $address, $birthDate, $membershipExpirationDate, $role);
 
         $this->jobTitle = $jobTitle;
@@ -33,17 +33,17 @@ class Employee extends User implements FileConvertible {
                 $awardsList);
     }
 
-    public function toHTML(): string {
-        $parentHTML = parent::toHTML();
+    public function toHTML(): string
+    {
         $awardsList = implode(", ", array_map('htmlspecialchars', $this->awards));
 
-        return $parentHTML . sprintf("
-            <div class='employee-details'>
-                <p>Job Title: %s</p>
-                <p>Salary: $%.2f</p>
-                <p>Start Date: %s</p>
-                <p>Awards: %s</p>
-            </div>",
+        return sprintf("
+        <div class='bg-white shadow-md rounded-lg p-4 my-4'>
+            <p class='text-gray-600'><span class='font-semibold'>Job Title:</span> %s</p>
+            <p class='text-gray-600'><span class='font-semibold'>Salary:</span> $%.2f</p>
+            <p class='text-gray-600'><span class='font-semibold'>Start Date:</span> %s</p>
+            <p class='text-gray-600'><span class='font-semibold'>Awards:</span> %s</p>
+        </div>",
                 htmlspecialchars($this->jobTitle),
                 $this->salary,
                 $this->startDate->format('Y-m-d'),
