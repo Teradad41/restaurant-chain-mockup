@@ -39,15 +39,17 @@ class Employee extends User implements FileConvertible {
 
         return sprintf("
         <div class='bg-white shadow-md rounded-lg p-4 my-4'>
+            <p class='text-gray-600'><span class='font-semibold'>Name:</span> %s</p>
+            <p class='text-gray-600'><span class='font-semibold'>ID:</span> %d</p>
             <p class='text-gray-600'><span class='font-semibold'>Job Title:</span> %s</p>
             <p class='text-gray-600'><span class='font-semibold'>Salary:</span> $%.2f</p>
             <p class='text-gray-600'><span class='font-semibold'>Start Date:</span> %s</p>
-            <p class='text-gray-600'><span class='font-semibold'>Awards:</span> %s</p>
         </div>",
+                htmlspecialchars($this->firstName . " " . $this->lastName),
+                htmlspecialchars($this->id),
                 htmlspecialchars($this->jobTitle),
                 $this->salary,
                 $this->startDate->format('Y-m-d'),
-                $awardsList
             );
     }
 

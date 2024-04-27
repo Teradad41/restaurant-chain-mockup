@@ -23,13 +23,13 @@ $restaurantChains = RandomGenerator::generateArray("restaurantChains", $min, $ma
     <title>Restaurant Chain Mockup</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-6">
+<body class="bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-7">
         <?php foreach ($restaurantChains as $restaurantChain): ?>
             <div class="bg-white shadow overflow-hidden sm:rounded-lg p-5 mb-6">
-                <?php echo $restaurantChain->toHTML(); ?>
+                <h1 class='font-bold text-center text-3xl'>Restaurant Chain: <?php echo $restaurantChain->getName(); ?></h1>
                 <div class="bg-blue-200 p-5 mt-4">
-                    <h4 class="font-semibold text-xl">Restaurant Chain Information</h4>
+                    <h4 class="font-semibold text-xl">Information</h4>
                 </div>
                 <div class="bg-gray-50 p-5">
                     <?php foreach ($restaurantChain->getRestaurantLocations() as $restaurantLocation): ?>
