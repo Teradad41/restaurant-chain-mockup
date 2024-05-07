@@ -2,8 +2,8 @@
 
 namespace Models\Users;
 
-use DateTime;
 use Interfaces\FileConvertible;
+use DateTime;
 
 class User implements FileConvertible
 {

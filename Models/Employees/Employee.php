@@ -35,15 +35,15 @@ class Employee extends User implements FileConvertible {
 
     public function toHTML(): string
     {
-        $awardsList = implode(", ", array_map('htmlspecialchars', $this->awards));
-
         return sprintf("
         <div class='bg-white shadow-md rounded-lg p-4 my-4'>
-            <p class='text-gray-600'><span class='font-semibold'>Name:</span> %s</p>
-            <p class='text-gray-600'><span class='font-semibold'>ID:</span> %d</p>
-            <p class='text-gray-600'><span class='font-semibold'>Job Title:</span> %s</p>
-            <p class='text-gray-600'><span class='font-semibold'>Salary:</span> $%.2f</p>
-            <p class='text-gray-600'><span class='font-semibold'>Start Date:</span> %s</p>
+            <div class='my-4'>
+                <p class='text-gray-600'><span class='font-semibold'>Name:</span> %s</p>
+                <p class='text-gray-600'><span class='font-semibold'>ID:</span> %d</p>
+                <p class='text-gray-600'><span class='font-semibold'>Job Title:</span> %s</p>
+                <p class='text-gray-600'><span class='font-semibold'>Salary:</span> $%.2f</p>
+                <p class='text-gray-600'><span class='font-semibold'>Start Date:</span> %s</p>
+            </div>
         </div>",
                 htmlspecialchars($this->firstName . " " . $this->lastName),
                 htmlspecialchars($this->id),
@@ -55,9 +55,8 @@ class Employee extends User implements FileConvertible {
 
     public function toMarkdown(): string
     {
-        $parentMarkdown = parent::toMarkdown();
         $awardsList = implode(", ", $this->awards);
-        return $parentMarkdown . sprintf(
+        return sprintf(
                 "\n### Job Details\n- Job Title: %s\n- Salary: $%.2f\n- Start Date: %s\n- Awards: %s",
                 $this->jobTitle,
                 $this->salary,

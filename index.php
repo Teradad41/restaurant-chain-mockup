@@ -8,7 +8,7 @@ spl_autoload_register();
 require './vendor/autoload.php';
 
 $min = max((int)($_GET["min"] ?? 2), 2);
-$max = max((int)($_GET["max"] ?? 6), $min);
+$max = max((int)($_GET["max"] ?? 5), $min);
 
 $restaurantChains = RandomGenerator::generateArray("restaurantChains", $min, $max);
 ?>
