@@ -1,11 +1,13 @@
 <?php
 
-use Helpers\RandomGenerator;
-
-spl_autoload_extensions('.php');
-spl_autoload_register();
+// エラーハンドリング設定
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require './vendor/autoload.php';
+
+use Helpers\RandomGenerator;
 
 $min = max((int)($_GET["min"] ?? 2), 2);
 $max = max((int)($_GET["max"] ?? 5), $min);
